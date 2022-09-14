@@ -11,11 +11,14 @@ const ProductList = (props) => {
     const [value, setValue] = React.useState(4);
 
     <Box sx={{
-    width: 300,
-    color: 'success.main',
-  }}></Box>
+        width: 300,
+        color: 'success.main',
+    }}></Box>
+    
     return (
         <div className="card-item">
+                    {console.log(`data`, data)}
+
             <div className="card-inner">
                 <div className="card-top">
                     <Link to={`/SingleProduct/${data._id}`} style={{textDecoration:"none",color:"black"}}>

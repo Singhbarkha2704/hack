@@ -10,20 +10,27 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { addToCart } from '../../Store/CartSlice';
 import '../../Styles/SingleProduct.css';
+import { addToWish } from '../../Store/WishListSlice';
 
 const SingleProduct = () => {
-    const { _id } = useParams()
-    const dispatch = useDispatch()
-    const [data, setData] = useState([])
+    const { _id } = useParams();
+    const dispatch = useDispatch();
+    const [data, setData] = useState([]);
+
     useEffect(() => {
         axios.get(`http://localhost:3005/api/products/find/${_id}`).then((res) => setData(res.data)).catch((err) => console.log(err))
         console.log(`data:`, data)
     }, [])
 
     const handleAddToCart = (item) => {
+        console.log(`item`, item);
         dispatch(addToCart(item));
 
     };
+
+    const handleAddToWishlist = (item) => {
+        dispatch(addToWish(item))
+    }
 
     return (
         <div>
@@ -33,6 +40,7 @@ const SingleProduct = () => {
                         <img src={data.images} alt="" />
                     </div>
                 </div>
+
                 <div class=" single-product-info">
                     <h3 class="single-product-name">{data.title}</h3>
                     <p class="single-price">{data.price}</p>
@@ -41,14 +49,14 @@ const SingleProduct = () => {
                         <div class="single-stock-status"></div>
                         <p class="single-stock-info">Available:{data.stock}</p>
                     </div>
+
                     <div class="single-buttons">
-                    <button  onClick={() => handleAddToCart(data, window.location.reload())} className="single-button">Add to Cart</button>
-                    <button onClick={() => handleAddToCart(data, window.location.reload())} className="single-button">Add to Wishlist</button>
+                        <button onClick={() => handleAddToCart(data, window.location.reload())} className="single-button">Add to Cart</button>
+                        
+                        <button onClick={() => handleAddToWishlist(data, window.location.reload())} className="single-button">Add to Wishlist</button>
                     </div>
                 </div>
             </div>
-
-
         </div>
 
 

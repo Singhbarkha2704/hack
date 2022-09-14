@@ -1,8 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { TableContainer,Table,TableHead,TableBody,TableRow,TableCell,Paper} from  "@mui/material"
-import salesdata from "./Salesdata";
-import Sidebar from '../admin/components/Sidebar/Sidebar';
-import TopNav from '../admin/components/TopNav/TopNav';
+// import salesdata from "./Salesdata"
 import DraftsIcon from '@mui/icons-material/Drafts';
 import MarkAsUnreadIcon from '@mui/icons-material/MarkAsUnread';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
@@ -12,23 +10,28 @@ import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 import TitleIcon from '@mui/icons-material/Title';
 import "../../Styles/Sales.css"
 import { Helmet } from 'react-helmet';
-import '../../Styles/sidebar.css';
-import '../../Styles/top-nav.css';
-
-
+import axios from 'axios';
+import { publicRequest } from '../../requestMethods';
+import Sidebar from '../admin/components/Sidebar/Sidebar';
 
 function SalesTable(){
+const [salesdata,setSalesdata] = useState([]);
+    
+useEffect(()=>{
+publicRequest.get('sales/get').then((res)=>setSalesdata(res.data));
+},[])
+console.log(salesdata);
     //  const classes = useStyles();
     return (
-        <Fragment> 
-           
+        <Fragment>
             <Helmet><title>Sales</title></Helmet>
 
-            <div className="layout">
-                <Sidebar />
-                <div className="main__layout">
-                </div>
-            </div>
+             <div className="layout">
+                    <Sidebar />
+                    <div className="main__layout"/>
+
+                    <div className="content"/>
+                </div>  
 
             <h1 className='heading'>Sales Report</h1>
         <TableContainer component={Paper} className="sale-Paper">
@@ -54,7 +57,7 @@ function SalesTable(){
                                 <TableCell align="center">{row.id}</TableCell>
                                 <TableCell align="center">{row.title}</TableCell>
                                 <TableCell align="center"> {row.price}</TableCell>
-                                <TableCell align="center">{row.date}, {row.time}</TableCell>
+                                <TableCell align="center">{row.createdAt.slice(0,10)},{row.createdAt.slice(11,19)}</TableCell>
                                 <TableCell align="center">{row.quantity}</TableCell>
                                 {/* <TableCell align="center">{row.email}</TableCell> */}
                                 <TableCell  align="center">{row.email}</TableCell>
@@ -69,4 +72,3 @@ function SalesTable(){
     )
 }
 export default SalesTable
-

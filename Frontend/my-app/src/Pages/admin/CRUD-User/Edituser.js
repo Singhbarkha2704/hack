@@ -1,21 +1,24 @@
 import axios from "axios"
-import { useState } from "react"
+import React, { Fragment, useState } from "react"
 import { useParams} from "react-router-dom"
 import { useEffect } from "react"
 import { toast,ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import "../../../Styles/Editproduct.css";
+import Sidebar from "../components/Sidebar/Sidebar"
+import { TOKEN, userRequest } from "../../../requestMethods"
 
 function EditUser(){
-
-    const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
-    const [phone, setPhone] = useState(0)
-    const [password, setPassword] = useState('')
-    const {_id}=useParams('')
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState(0);
+    const [password, setPassword] = useState('');
+    const { _id } = useParams('');
 
     useEffect(() => {
-        axios.get(`http://localhost:3005/api/users/find/${_id}`)
+        axios.get(`http://localhost:3005/api/users/find/${_id}`, {
+            headers: { token: `Bearer ${TOKEN}` }
+        })
             .then((prod) => {
                 //console.log(prod.data.product);
                 if (prod) {
@@ -23,16 +26,18 @@ function EditUser(){
                     setEmail(prod.data.email)
                     setPhone(prod.data.phone)
                 }
-
             })
             .catch(error => {
                 console.log(error)
             })
-    }, []);
+        }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3005/api/users/${_id}`,{username,email,phone})
+        axios.put(`http://localhost:3005/api/users/${_id}`, { username, email, phone }, {
+            headers: { token: `Bearer ${TOKEN}` }
+
+        })
             .then(function (response) {
                 console.log(response);
                 toast.success(` User name: ${username}, updated`);
@@ -42,7 +47,16 @@ function EditUser(){
                 toast.error(error.message);
             });
     }
-    return(
+    return (
+        <Fragment>
+            <div className="layout">
+        <Sidebar />
+        <div className="main__layout">
+
+            <div className="content">
+            </div>
+        </div>
+        </div>
         <div className="add-body">
         <div className="add-container">
         <div className="form-title">Edit Users</div>
@@ -70,7 +84,8 @@ function EditUser(){
     </form>
     <ToastContainer/>
         </div>
-    </div>
+            </div>
+            </Fragment>
 
     )
 }

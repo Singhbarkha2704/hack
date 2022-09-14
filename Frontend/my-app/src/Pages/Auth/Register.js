@@ -122,7 +122,7 @@ const Register = () => {
                             <button className="register-btn" style={{ marginTop:20}} onClick={handleRegister}>Register</button>
                             <hr />
                             <p>Already have an account ? </p>
-                            <Link to='/'><button className="register-b btn btn-success ms-3" >Login</button></Link>
+                            <Link to='/login'><button className="register-b btn btn-success" style={{marginLeft:'130px', marginTop:'-5px'}} >Login</button></Link>
 
                         </div>
                     </div>

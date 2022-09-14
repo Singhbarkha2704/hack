@@ -7,8 +7,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import backGif from '../assets/images/icons8-back.gif';
+import { useSelector } from 'react-redux';
+import Sidebar from './admin/components/Sidebar/Sidebar';
 
 const UserProfile = () => {
+    const currentUser = useSelector(state => state.user.currentUser);
+
     const user = {
         id:1,
         username: 'Doraemon',
@@ -34,11 +38,21 @@ const UserProfile = () => {
     return (
     <Fragment>
         <Helmet>
-            <title>Admin Profile</title>
+            <title>Profile</title>
         </Helmet>  
+            {
+                currentUser.isAdmin && (
+                <div className="layout">
+                    <Sidebar />
+                    <div className="main__layout"/>
 
+                    <div className="content"/>
+                </div>                    
+                )
+            }
+              
         {/* Header Section */}
-        <header>
+        {/* <header>
             <div className='continue-shopping'>
                 <img src={backGif} alt='left-arrow' className='arrow-icon'/>
                 <h3>Continue Shopping</h3> 
@@ -47,17 +61,17 @@ const UserProfile = () => {
             <div className='cart-icon'>
                 <img src="https://img.icons8.com/material-rounded/48/12B886/user-male-circle.png" alt='user-icon' />
             </div>
-        </header> 
+        </header>  */}
           
         {/* main section */}
             
         <div className="profileContainer">
             <div>
-                <h1>Admin Profile</h1>
-                    <img src={user.userImage} alt={user.username} />
+                <h1 >Profile</h1>
+                    <img src='https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_1280.png' alt='' />
 
-         {/* Popup for Editing Password            */}
-                 <Popup
+         {/* Popup for Editing Password*/}
+                 {/* <Popup
                     trigger={<button className='change-passwordbtn'>Edit Profile</button>} position="top center"      
                 >
                     <form
@@ -95,35 +109,27 @@ const UserProfile = () => {
                         </button>    
                     </form>
                                      
-                </Popup>
+                </Popup> */}
             </div>
                     
             <div>
                 <div>
-                    <h4>Username</h4>
-                    <p>{user.username}</p>
+                    <h4>Name</h4>
+                    <p>{currentUser.username}</p>
                 </div>
                 <div>
                     <h4>Email</h4>
-                    <p>{user.email}</p>
+                    <p>{currentUser.email}</p>
                 </div>
                 <div>
                     <h4>Mobile Number</h4>
-                    <p>{user.phoneNo }</p>
+                    <p>{currentUser.phone}</p>
                 </div>
                         
-                <div>
-                    <h4>Address</h4>
-                    <p>{user.address }</p>
-                </div> 
-                        
-                <div>
-                    <h4>Pincode</h4>
-                    <p>{user.pincode }</p>
-                </div> 
+                
                 <div>
             {/* <Link to="/orders">My Orders</Link> */}
-                <Popup
+                {/* <Popup
                     trigger={<button className='change-passwordbtn'>Change Password</button>} position="top center"      
                 >
                     <form
@@ -161,7 +167,7 @@ const UserProfile = () => {
                         </button>    
                     </form>
                                      
-                </Popup>
+                </Popup> */}
                             
             {/* // <Link to="/password/change">Change Password</Link> */}
                     </div>

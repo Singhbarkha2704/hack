@@ -7,6 +7,7 @@ import { toast,ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { ProductFetch } from "../../../Store/ProductSlice";
 import "../../../Styles/Editproduct.css"
+import { TOKEN, userRequest } from "../../../requestMethods"
 
 function EditProduct(){
 
@@ -17,7 +18,9 @@ function EditProduct(){
     const [discountPercentage,setDiscountpercentage]=useState(0)
     const [images,setImages]=useState("")
     const {_id}=useParams('')
-const dispatch=useDispatch()
+    const dispatch = useDispatch()
+    const token = `Bearer ${TOKEN}` 
+    
     useEffect(() => {
         axios.get(`http://localhost:3005/api/products/find/${_id}`)
             .then((prod) => {
@@ -40,7 +43,10 @@ const dispatch=useDispatch()
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3005/api/products/${_id}`,{title,price,rating,discountPercentage,stock,images})
+        console.log(token);
+        axios.put(`http://localhost:3005/api/products/${_id}`, { title, price, rating, discountPercentage, stock, images }, {
+            headers: { token: `Bearer ${TOKEN}` }
+        })
             .then(function (response) {
                 console.log(response);
                 toast.success(`Product: ${title}, updated`);

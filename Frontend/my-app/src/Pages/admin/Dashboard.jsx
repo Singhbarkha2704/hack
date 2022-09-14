@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import "../../Styles/dashboard.css";
 import Sidebar from "./components/Sidebar/Sidebar";
-import TopNav from "./components/TopNav/TopNav";
 import SingleCard from "./components/reuseable/SingleCard";
 import DecorStatsChart from "./charts/DecorStatsChart";
 import RecommendDecorCard from "./components/UI/RecommendDecorCard";

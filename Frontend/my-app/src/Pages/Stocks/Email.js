@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import "../../Styles/Email.css";
-
+import Sidebar from '../admin/components/Sidebar/Sidebar';
  const Email = () => {
   const form = useRef();
 
@@ -18,7 +18,15 @@ import "../../Styles/Email.css";
 
   return (
     <div>
-     
+      <div className="layout">
+        <Sidebar />
+      <div className="main__layout">
+        {/* <TopNav /> */}
+
+        <div className="content">
+        </div>
+      </div>
+    </div>
 
     <div className="email-container">
         <h1 className='email-head'>Contact Us</h1>

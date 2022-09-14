@@ -1,9 +1,11 @@
 import axios from "axios"
-import { useState } from "react"
+import { Fragment, useState } from "react"
 import { useParams} from "react-router-dom"
 import { toast,ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import "../../../Styles/CreateProduct.css";
+import { TOKEN, userRequest } from "../../../requestMethods"
+import Sidebar from "../components/Sidebar/Sidebar";
 
 function CreateUser(){
     const [username, setUsername] = useState('')
@@ -15,7 +17,9 @@ function CreateUser(){
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:3005/api/auth/register`,{username,email,password,phone})
+        axios.post(`http://localhost:3005/api/auth/register`, { username, email, password, phone }, {
+            headers: { token: `Bearer ${TOKEN}` }
+        })
             .then(function (response) {
                 console.log(response);
                 toast.success(`User: ${username}, Added`);
@@ -27,7 +31,16 @@ function CreateUser(){
     }
     
 
-    return(
+    return (
+        <Fragment>
+             <div className="layout">
+        <Sidebar />
+        <div className="main__layout">
+
+            <div className="content">
+            </div>
+        </div>
+        </div>
         <div className="add-body">
             <div className="add-container">
             <div className="form-title">Users</div>
@@ -55,7 +68,8 @@ function CreateUser(){
         </form>
         <ToastContainer/>
             </div>
-        </div>
+            </div>
+            </Fragment>
     )
 }
 

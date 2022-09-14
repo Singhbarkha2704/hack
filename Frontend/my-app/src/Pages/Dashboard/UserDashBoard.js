@@ -9,7 +9,7 @@ import Benefits from "./Benefts";
 import Advertisement from "./Advertisement";
 import VideoAd from "./VideoAd";
 
-function UserDashBoard(props) {
+function UserDashBoard() {
   return (
     <Fragment>
       <div className="custom-carousel">

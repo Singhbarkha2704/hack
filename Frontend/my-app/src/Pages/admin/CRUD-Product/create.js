@@ -7,6 +7,8 @@ import { toast,ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { ProductFetch } from "../../../Store/ProductSlice"
 import "../../../Styles/CreateProduct.css"
+import { Link } from "react-router-dom"
+import { TOKEN, userRequest } from "../../../requestMethods"
 
 function CreateProduct(){
 
@@ -45,7 +47,11 @@ function CreateProduct(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:3005/api/products/`,{title,description,images,category,price,discountPercentage,rating,stock})
+        axios.post(`http://localhost:3005/api/products/`, { title, description, images, category, price, discountPercentage, rating, stock }, {
+            
+            headers: { token: `Bearer ${TOKEN}` }
+        
+        })
             .then(function (response) {
                 console.log(response);
                 toast.success(`Product: ${title}, updated`);
@@ -56,40 +62,41 @@ function CreateProduct(){
             });
     }
 
-    return(
+    return (
+        
         <div className="add-body">
             <div className="add-container">
             <div className="form-title">Products</div>
-        <form>
+            <form>
             <div className="user-details">
                 <div className="input-box">
                 <span className="details">Category</span>
-                <input type="text" placeholder="Enter product name" value={category} onChange={(e)=>setCategory(e.target.value)} required></input>
+                <input type="text" placeholder="Enter Category" value={category} onChange={(e)=>setCategory(e.target.value)} required></input>
                 {console.log(category)}
                 </div>
                 <div className="input-box">
                 <span className="details">Product Title</span>
-                <input type="text" placeholder="Enter category" value={title} onChange={(e)=>setTitle(e.target.value)} required></input>
+                <input type="text" placeholder="Enter Product Title" value={title} onChange={(e)=>setTitle(e.target.value)} required></input>
                 </div>
                 <div className="input-box">
                 <span className="details">Description</span>
-                <input type="text" placeholder="Enter Price" value={description} onChange={(e)=>setDescription(e.target.value)} required></input>
+                <input type="text" placeholder="Enter Product Description" value={description} onChange={(e)=>setDescription(e.target.value)} required></input>
                 </div>
                 <div className="input-box">
                 <span className="details">Price</span>
-                <input type="text" placeholder="Enter decription" value={price} onChange={(e)=>setPrice(e.target.value)} required></input>
+                <input type="text" placeholder="Enter Price" value={price} onChange={(e)=>setPrice(e.target.value)} required></input>
                 </div>
                 <div className="input-box">
                 <span className="details">Discount</span>
-                <input type="text" placeholder="Enter rating" value={discountPercentage} onChange={(e)=>setDiscountpercentage(e.target.value)} required></input>
+                <input type="text" placeholder="Enter Discount" value={discountPercentage} onChange={(e)=>setDiscountpercentage(e.target.value)} required></input>
                 </div>
                 <div className="input-box">
                 <span className="details">Rating</span>
-                <input type="text" placeholder="Enter offer price"   value={rating} onChange={(e)=>setRating(e.target.value)} required></input>
+                <input type="text" placeholder="Enter Rating"   value={rating} onChange={(e)=>setRating(e.target.value)} required></input>
                 </div>
                 <div className="input-box">
                 <span className="details">Stock</span>
-                <input type="text" placeholder="Enter stock"  value={stock} onChange={(e)=>setStock(e.target.value)} required></input>
+                <input type="text" placeholder="Enter Product Stock"  value={stock} onChange={(e)=>setStock(e.target.value)} required></input>
                 </div>
                 <div className="input-box">
                 <span className="details">Images</span>
@@ -100,6 +107,7 @@ function CreateProduct(){
                 </div> */}
                 <button className="add-btn1" onClick={(e)=>handleSubmit(e)}>Add Product</button>
             </div>
+                            <Link to='/product-detail' className="fa fa-arrow-alt-circle-left"><button className="btn btn-lg btn-warning"> Previous</button></Link>
 
         </form>
         <ToastContainer/>

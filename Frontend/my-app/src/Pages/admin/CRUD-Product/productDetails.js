@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from '../../../Pages/Navbar/Footer'
 import { ProductFetch } from '../../../Store/ProductSlice'
@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom'
 import axios from "axios"
 import { toast } from 'react-toastify'
 // import 'antd/dist/antd.css';
-
-
-const ProductDetails = () => {
+import Sidebar from '../components/Sidebar/Sidebar'
+import { TOKEN, userRequest } from "../../../requestMethods"
+const ProductDetails = () => {          
   const dispatch = useDispatch()
   const productList = useSelector(state => state.product)
   const { loading, items } = productList
@@ -20,10 +20,13 @@ const ProductDetails = () => {
   //Delete product
   //console.log(props)
   const deleteProduct = (id, name) => {
-
     if (window.confirm(`Are you sure, you want to delete Product: ${name}`)) {
       //console.log("clicked")
-      axios.delete(`http://localhost:3005/api/products/${id}`)
+      axios.delete(`http://localhost:3005/api/products/${id}`,  
+        {
+            headers: { token: `Bearer ${TOKEN}` }
+        }
+      )
         // axios.delete(`/product/delete/${match.params.id}`)
         .then(prod => {
           if (prod) {
@@ -34,7 +37,6 @@ const ProductDetails = () => {
             //update product list after deleting product
             dispatch(ProductFetch());
           }
-
         })
         .catch(error => {
           console.log(error)
@@ -45,6 +47,15 @@ const ProductDetails = () => {
 
   return (
     <>
+        <div className="layout">
+        <Sidebar />
+      <div className="main__layout">
+        {/* <TopNav /> */}
+
+        <div className="content">
+        </div>
+      </div>
+    </div>
     <h3 style={{textAlign:"center",marginTop: "40px"}}>List of products</h3>
       <div className='container' style={{marginLeft:"5%",marginRight:"5%"}} >
         
@@ -76,7 +87,7 @@ const ProductDetails = () => {
                   <td style={{textAlign:"center"}}>{product.price}</td>
                   <td style={{textAlign:"center"}}>{product.discountPercentage}</td>
                   <td style={{textAlign:"center"}}>{product.stock}</td>
-                  <td style={{textAlign:"center"}}><img src={product.images} style={{width:"100px",height:"100px",borderRadius:"50%"}}></img></td>
+                  <td style={{textAlign:"center"}}><img src={product.images} style={{width:"100px",height:"100px",borderRadius:"50%"}} alt=''></img></td>
                   <td><Link to={`/edit/${product._id}`}>  <i class="fa fa-edit" aria-hidden="true" style={{ fontSize: "18px", marginTop: "0px" }}></i> </Link></td>
                   <td style={{ cursor: "pointer" }} onClick={() => deleteProduct(product._id, product.title)}><i class="fa fa-trash-o" style={{ fontSize: "18px", marginRight: "10px", color: "red" }} aria-hidden="true"></i></td>
                 </tr>

@@ -20,9 +20,10 @@
 
 .profileContainer > div:first-child > h1 {
   color: #025042;
-  font-weight: bolder;
-  font: 500 2.2vmax "Roboto";
+  font-weight: 50px!important ;
+  font:  "Roboto";
   transform: translateX(-10vmax) translateY(-2vmax);
+  margin-left: 45%;
 }
 
 .profileContainer > div:first-child > img {

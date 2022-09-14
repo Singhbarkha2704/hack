@@ -14,7 +14,6 @@ const Login=()=>{
     const [password,setPassword]=useState('')
     const [emailErr,setEmailerr]=useState('')
     const [passwordErr, setPassworderr] = useState("");
-    const [isAdmin, setAdmin] = useState(false); //for checking 
     const [isLoggedin, setIsLoggedin] = useState(false);
     const bgstyle={color:"red"}
     const dispatch = useDispatch();
@@ -64,14 +63,12 @@ const Login=()=>{
         (res=>{        
            
             dispatch(loginSuccess(res.data));
-
-
             if (res.data.isAdmin) {
-                setAdmin(!isAdmin); //true
-                localStorage.setItem('isAdmin', isAdmin);                
+                localStorage.setItem('isAdmin', true);                
                 navigate("/admin-dashboard");
              }
             else {
+                localStorage.setItem('isAdmin', false);
                 navigate("/");
             }
             
@@ -116,7 +113,7 @@ const Login=()=>{
                             <hr />
                             <p className="login-b">Don't have an Account?</p>
                             <Link to='/Register'>
-                                <button className="btn btn-warning ms-4">
+                                <button className="btn btn-warning" style={{marginLeft:'120px'}}>
                                     Sign Up
                                 </button>
                                

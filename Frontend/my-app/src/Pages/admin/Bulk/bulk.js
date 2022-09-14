@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { TableContainer,Table,TableHead,TableBody,TableRow,TableCell,Paper} from  "@mui/material"
 import "../../../Styles/CsvReader.css";
 import axios from 'axios';
+import { TOKEN, userRequest } from "../../../requestMethods"
+import Sidebar from './../components/Sidebar/Sidebar';
 
 export default function CsvReader(){
     const [csvFile, setCsvFile] = useState();
@@ -27,8 +29,8 @@ export default function CsvReader(){
         console.log(newArray)
         setCsvArray(newArray)
         console.log(csvArray)
-        axios.post('http://localhost:3005/api/products/allcsv',{csvArray}).then((res)=>console.log(res.data))
-        
+
+              
     }
 
     const submit = () => {
@@ -43,52 +45,59 @@ export default function CsvReader(){
         }
 
         reader.readAsText(file);
+        axios.post('http://localhost:3005/api/products/allcsv', { csvArray }, {
+            headers: { token: `Bearer ${TOKEN}` }
+        }).then((res)=>console.log(res.data))  
     }
 
-    return(
+    return (
+        <Fragment>
+            <div className="layout">
+        <Sidebar />
+        <div className="main__layout">
+
+            <div className="content">
+            </div>
+        </div>
+        </div>
+            
         <div className='csv-body'>
             <h3 className='csv-header'>Bulk Products Upload</h3>
             <span className='csv-span'>Please choose a file</span>
             
             <div className='csv-upload'>
-        <form className='csv-reader-form' id='csv-form'>
-         <input className='csvreader-input'
-                type='file'
-                accept='.csv'
-                id='csvFile'
-                onChange={(e) => {
-                    setCsvFile(e.target.files[0])
-                }}
-            >
-               
-            </input>
-           
-            <br/>
-           
-            <button className='csvreader-btn'
-                onClick={(e) => {
-                    e.preventDefault()
-                    if(csvFile)submit()
-                }}
-
-            >
-               Upload
-            </button> 
-
-
-</form>
-</div>
+                <form className='csv-reader-form' id='csv-form'>
+                    <input className='csvreader-input'
+                        type='file'
+                        accept='.csv'
+                        id='csvFile'
+                        onChange={(e) => {
+                            setCsvFile(e.target.files[0])
+                        }}
+                    >               
+                    </input>           
+                    <br />     
+                    
+                    <button className='csvreader-btn'
+                        onClick={(e) => {
+                            e.preventDefault()
+                            if(csvFile)submit()
+                        }}
+                    >
+                        Upload
+                    </button> 
+                </form>
+            </div>
         
 
-<TableContainer component={Paper} className="stock-Paper">
-            <Table  aria-label='simple table' sx={{
-    "& .MuiTableRow-root:hover": {
-      backgroundColor: '#F2F1EF'
-    }
-  }}>
+            <TableContainer component={Paper} className="stock-Paper">
+                <Table  aria-label='simple table' sx={{
+                    "& .MuiTableRow-root:hover": {
+                    backgroundColor: '#F2F1EF'
+                    }
+                }}>
                 <TableHead className="csv-head">
-                    <TableRow>
-                        
+                    <TableRow>                       
                         <TableCell align="center" fontWeight="bold">Product Title</TableCell>
                         <TableCell align="center" fontWeight="bold">Description</TableCell>
                         <TableCell align="center" fontWeight="bold">stock</TableCell>
@@ -99,11 +108,11 @@ export default function CsvReader(){
                         <TableCell align="center" fontWeight="bold">Images</TableCell>
                     </TableRow>
                 </TableHead>
+                        
                 <TableBody>
                     {
                         csvArray.map(item=>(
-                            <TableRow key={item.id} sx={{ '&:last-child td, &:last-child th':{border: 0 }}}>
-                                
+                            <TableRow key={item.id} sx={{ '&:last-child td, &:last-child th':{border: 0 }}}>                                
                                 <TableCell align="center">{item.title}</TableCell>
                                 <TableCell align="center">{item.description}</TableCell>
                                 <TableCell align="center">{item.stock}</TableCell>
@@ -111,16 +120,15 @@ export default function CsvReader(){
                                 <TableCell align="center">{item.price}</TableCell>
                                 <TableCell align="center">{item.discountPercentage}</TableCell>
                                 <TableCell align="center">{item.rating}</TableCell>
-                                <TableCell  align="center"><img src={item.images} style={{width:"100px",height:"100px",borderRadius:"50%"}}></img></TableCell>
-                               
-                                
+                                <TableCell  align="center"><img src={item.images} style={{width:"100px",height:"100px",borderRadius:"50%"} } alt=''></img></TableCell>                                
                             </TableRow>
                         ))
                     }
                 </TableBody>
             </Table>
         </TableContainer>
-        </div>
+    </div>
+    </Fragment>
     );
 
 }

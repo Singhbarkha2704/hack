@@ -4,7 +4,9 @@ import Footer from './../../../Pages/Navbar/Footer';
 import { ProductFetch } from '../../../Store/ProductSlice';
 import { Link } from 'react-router-dom'
 import axios from "axios"
-import { toast,ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
+import Sidebar from '../components/Sidebar/Sidebar';
+import { TOKEN, userRequest } from "../../../requestMethods"
 
 
 const UserDetails = () => {
@@ -13,7 +15,9 @@ const UserDetails = () => {
   
 
   useEffect(() => {
-    axios.get(`http://localhost:3005/api/users/`).then((res)=>setData((res.data))).catch((err)=>console.log(err))
+    axios.get(`http://localhost:3005/api/users/`, {
+      headers: { token: `Bearer ${TOKEN}` }
+    }).then((res)=>setData((res.data))).catch((err)=>console.log(err))
   }, [])
 
   //Delete product
@@ -22,7 +26,9 @@ const UserDetails = () => {
 
     if (window.confirm(`Are you sure, you want to delete Product: ${name}`)) {
       //console.log("clicked")
-      axios.delete(`http://localhost:3005/api/users/${id}`)
+      axios.delete(`http://localhost:3005/api/users/${id}`, {
+        headers: { token: `Bearer ${TOKEN}` }
+      })
         // axios.delete(`/product/delete/${match.params.id}`)
         .then(prod => {
           if (prod) {
@@ -42,6 +48,14 @@ const UserDetails = () => {
 
   return (
     <>
+       <div className="layout">
+        <Sidebar />
+        <div className="main__layout">
+
+            <div className="content">
+            </div>
+        </div>
+        </div>
     <h3 style={{textAlign:"center",marginTop: "40px"}}>List of Users</h3>
       <div className='container' style={{marginLeft:"5%",marginRight:"5%"}} >
         

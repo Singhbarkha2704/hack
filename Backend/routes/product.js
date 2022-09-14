@@ -26,8 +26,8 @@ router.post("/allcsv",verifyTokenAndAdmin, async (req, res) => {
 console.log("started");
 // console.log(req.body);
 let key = 0;
-  for(let i = 0; i < req.body.length; i++) {
-    let obj = req.body[i];
+  for(let i = 0; i < req.body.csvArray.length; i++) {
+    let obj = req.body.csvArray[i];
     console.log(obj);
     new Product(obj)
     .save()
@@ -75,6 +75,7 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
 
 //DELETE
 router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
+  console.log(`req.headers`, req.headers);
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.status(200).json("Product has been deleted...");

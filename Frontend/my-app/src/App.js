@@ -13,7 +13,6 @@ import Cart from "./Pages/Cart/Cart"
 import UserProfile from "./Pages/UserProfile";
 import SpectatorNavbar from './Pages/Navbar/SpectatorNavbar';
 import UserNavbar from './Pages/Navbar/UserNavbar';
-import AdminNavbar from './Pages/Navbar/AdminNavbar';
 import CardProfile from './Pages/Navbar/Profile';
 import Footer from '../src/Pages/Navbar/Footer';
 import AboutInfo from './Pages/About';
@@ -37,19 +36,19 @@ import CreateUser from './Pages/admin/CRUD-User/createUser';
 import EditUser from './Pages/admin/CRUD-User/Edituser';
 import CsvReader from './Pages/admin/Bulk/bulk';
 import Admin from './Pages/admin/Admin';
-import { useSelector } from 'react-redux';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import Userwish from './Pages/WishList/wish';
 
 function App() {
-     
+  const admin=useSelector(state=>state.user.currentUser)
 
   return (
     <div>
       <BrowserRouter>
-        <UserNavbar />     
-
+        {(admin===null || admin.isAdmin===false ) && (<UserNavbar />)}   
         <Routes>
-          <Route path="login" element={<Login></Login>}></Route>
+          <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path='/' element={<UserDashBoard />} /> 
           <Route path="/contact" element={<Contact/>}/>
@@ -61,7 +60,8 @@ function App() {
           <Route path="/Decor" element={<Decor></Decor>}></Route>
           <Route path="/new-arrivals" element={<NewArrivals/>}/>
           <Route path="/cart" element={<Cart />} />
-          <Route path="/wishlist" element={<WishList/>}/>
+          <Route path="/wishlist" element={<WishList />} />
+          <Route path='/user-wish' element={<Userwish/>}/>
           <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/profile" element={<CardProfile />} />
           <Route path="/about" element={<AboutInfo />} />
@@ -79,14 +79,14 @@ function App() {
           <Route path='create' element={<CreateProduct></CreateProduct>}></Route>
           <Route path="edit/:_id" element={<EditProduct></EditProduct>}></Route>
 
-          <Route path='userdetails' element={<UserDetails />}/>
+          <Route path='/userdetails' element={<UserDetails />}/>
           <Route path='createuser' element={<CreateUser/>}/>
           <Route path='edituser/:_id' element={<EditUser/>}/>
           <Route path='bulk' element={<CsvReader></CsvReader>} />
           
           <Route path="*" element={<NoMatch/>}/>
         </Routes>
-        <Footer/>
+        {(admin === null || admin.isAdmin === false) && (<Footer />)}
       </BrowserRouter>
 
     </div>

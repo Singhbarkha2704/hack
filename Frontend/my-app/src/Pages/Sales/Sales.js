@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import { TableContainer,Table,TableHead,TableBody,TableRow,TableCell,Paper} from  "@mui/material"
-import salesdata from "./Salesdata"
+import salesdata from "./Salesdata";
+import Sidebar from '../admin/components/Sidebar/Sidebar';
+import TopNav from '../admin/components/TopNav/TopNav';
 import DraftsIcon from '@mui/icons-material/Drafts';
 import MarkAsUnreadIcon from '@mui/icons-material/MarkAsUnread';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
@@ -10,14 +12,24 @@ import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 import TitleIcon from '@mui/icons-material/Title';
 import "../../Styles/Sales.css"
 import { Helmet } from 'react-helmet';
+import '../../Styles/sidebar.css';
+import '../../Styles/top-nav.css';
 
 
 
 function SalesTable(){
     //  const classes = useStyles();
     return (
-        <Fragment>
+        <Fragment> 
+           
             <Helmet><title>Sales</title></Helmet>
+
+            <div className="layout">
+                <Sidebar />
+                <div className="main__layout">
+                </div>
+            </div>
+
             <h1 className='heading'>Sales Report</h1>
         <TableContainer component={Paper} className="sale-Paper">
             <Table  aria-label='simple table' sx={{

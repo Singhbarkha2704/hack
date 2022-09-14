@@ -6,7 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailIcon from '@mui/icons-material/Mail';
-import "../Styles/Footer.css"
+import "../../Styles/Footer.css";
 import {Link } from 'react-router-dom'
 
 const Footer=()=>{

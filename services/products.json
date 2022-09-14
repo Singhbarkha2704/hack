@@ -671,6 +671,76 @@
             "rating": 5.0,
             "stock": 65,
             "images": "https://ii1.pepperfry.com/media/catalog/product/f/o/494x544/foliyaj-artificial-green-leaf-vine-with-metal-wall-stand-foliyaj-artificial-green-leaf-vine-with-met-n1lehl.jpg"
+        },
+        {
+            
+            "id": 59,
+            "category": "New Arrivals",
+            "title": "Elephant Candle Holder Candles ",
+            "description": "Collectible India Tealight Candle Holder for Home Decoration Elephant Candle Holder Candles Tea Light Holder for Home Decor Diwali Decoration Items/Diwali Gifts/Diwali Candles",
+            "price": 269,
+            "discountPercentage": 7.3,
+            "rating": 4.0,
+            "stock": 20,
+            "images": "https://m.media-amazon.com/images/I/71T4iiAwgwL._SX569_.jpg"
+        },
+        {
+            
+            "id": 60,
+            "category": "New Arrivals",
+            "title": "12 Rangoli Colour Powder Tube Kit Diwali Decoration Items ",
+            "description": "CraftVatika 12 Rangoli Colour Powder Tube Kit Diwali Decoration Items Bottles Tool Floor Art Rang for Home Navratri Pongal Pooja Mandir Decor (Pack of 12)",
+            "price": 284,
+            "discountPercentage": 5.3,
+            "rating": 4.7,
+            "stock": 8,
+            "images": "https://m.media-amazon.com/images/I/81IwvfLw5kL._SX569_.jpg"
+        },
+        {
+            
+            "id": 61,
+            "category": "New Arrivals",
+            "title": "Wall Door Hanging Decorated Bell String",
+            "description": "SellPlus Handmade Wall Door Hanging Decorated Bell String with Tea Light Candle Holder and Paper Gajra with Circle Hanging Torans Garland Decoration Item for Home Décor Diwali Festival",
+            "price": 899,
+            "discountPercentage": 5.5,
+            "rating": 3.0,
+            "stock": 8,
+            "images": "https://m.media-amazon.com/images/I/51LWGjjEKuL._SX679_.jpg"
+        },
+        {
+            "id": 62,
+            "category": "New Arrivals",
+            "title": "Diwali Gift Diya",
+            "description": "Sanvatsar Home Decorative Diya Corporate Gift, Diwali Gift Diya,Deepak, Candles, New Year Gift, Home Decoration Light Diya Set of 7",
+            "price": 800,
+            "discountPercentage": 7.8,
+            "rating": 4.0,
+            "stock": 19,
+            "images": "https://images-eu.ssl-images-amazon.com/images/I/51RIiL7pD1L._SX300_SY300_QL70_FMwebp_.jpg"  
+        },
+        {
+            "id": 63,
+            "category": "New Arrivals",
+            "title": "Tea Candle Holder",
+            "description": "DEVU PARBAT ENTERPRISE Metal Tea Candle Holder and Diwali Decoration Items Traditional Designer Diya for Decor (Multicolour) -Set of 6",
+            "price": 359,
+            "discountPercentage": 2.8,
+            "rating": 4.8,
+            "stock": 9,
+            "images": "https://images-eu.ssl-images-amazon.com/images/I/516i0Nj85CL._SY300_SX300_QL70_FMwebp_.jpg"  
+        },
+        {
+            "id": 64,
+            "category": "New Arrivals",
+            "title": "Water Floating Smokeless Candles",
+            "description": "One94store Sensor Water Floating Smokeless Candles & Lotus Flowers Sensor Led Tea Light Unbreakable for Outdoor and Indoor Festival Decoration (Multicolor, Pack of 6)",
+            "price": 474,
+            "discountPercentage": 5.3,
+            "rating": 4.0,
+            "stock": 20,
+            "images": "https://m.media-amazon.com/images/I/714Mvv2lqrL._SX679_.jpg"  
         }
+        
     ]
 }

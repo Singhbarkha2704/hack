@@ -12,13 +12,49 @@ const router = require("express").Router();
 
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Product(req.body);
-
+  console.log(req.body);
+    console.log(newProduct);
   try {
     const savedProduct = await newProduct.save();
     res.status(200).json(savedProduct);
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.post("/allcsv",verifyTokenAndAdmin, async (req, res) => {
+console.log("started");
+// console.log(req.body);
+let key = 0;
+  for(let i = 0; i < req.body.length; i++) {
+    let obj = req.body[i];
+    console.log(obj);
+    new Product(obj)
+    .save()
+    .catch((err)=>{
+      console.log("err");
+    });
+
+
+    // try {
+    //   const savedProduct = await newProduct.save();
+    //   console.log("saved product is  ",savedProduct);
+    //   // res.status(200).json(savedProduct);
+    // } catch (err) {
+    //   key = 1;
+    //   console.log("error");
+    //   // res.status(500).json(err);
+    // }
+    // if(key==1){
+    //   break;
+    // }
+}
+if(key==1){
+   res.status(500).json("err");
+}
+res.status(200).json("congrats");
+  
+
 });
 
 //UPDATE
@@ -49,6 +85,16 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 
 //GET PRODUCT
 router.get("/find/:id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    res.status(200).json(product);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+//GET PRODUCT
+router.get("/find/:id", async (req, res) => {
+  
   try {
     const product = await Product.findById(req.params.id);
     res.status(200).json(product);

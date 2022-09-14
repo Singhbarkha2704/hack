@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../../Styles/Register.css'
  import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import axios from 'axios'
+
 const Register = () => {
 
+    const [status,setStatus] = useState('');
+    const navigate = useNavigate();
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [phone, setPhone] = useState('')
@@ -17,8 +21,7 @@ const Register = () => {
     const [passwordErr, setPassworderr] = useState("")
     const bgstyle = { color: "red" }
 
-
-
+   
     const handleChange = (e, key) => {
 
         if (key === 'username') {
@@ -78,8 +81,23 @@ const Register = () => {
 
     }
 
-    const handleRegister = () => {
-        toast.success('register successfully', { autoClose: 1200 })
+    const handleRegister = (e) => {
+        console.log("!");
+        e.preventDefault();
+    axios.post(`http://localhost:3005/api/auth/register`,
+    {username:username,email:email,password:password,phone:phone} )
+        .then(response => { 
+           console.log(response);
+           if(response.status==201){
+            navigate('/login');
+           }
+            
+        })
+        .catch(error => {
+            console.log("error");
+            console.log(error)
+            alert("You are entering Invalid Username and password") 
+        });
     }
 
     return (
@@ -100,16 +118,11 @@ const Register = () => {
                             <input type='text' placeholder="Phone no." onChange={(e) => handleChange(e, "phone")} onBlur={(e) => handleBlurEvent(e, 'phone')}></input>
                             <h6 style={bgstyle}>{phoneErr}</h6>
                             <input type='password' placeholder="Password" onChange={(e) => handleChange(e, "password")} onBlur={(e) => handleBlurEvent(e, 'password')}></input>
-                            <h6 style={bgstyle}>{passwordErr}</h6>
-                            <select >
-                                <option value="" disabled selected>Select role</option>
-                                <option>Admin</option>
-                                <option>User</option>
-                            </select>
-                            <Link to='/'><p className="register-a"> Forget password ?</p></Link>
-                            <button className="register-btn" onClick={handleRegister}>Register</button>
-                            <br />
-                            <Link to='/'><p className="register-b">Already have an account ? Login</p></Link>
+                            <h6 style={bgstyle}>{passwordErr}</h6>                            
+                            <button className="register-btn" style={{ marginTop:20}} onClick={handleRegister}>Register</button>
+                            <hr />
+                            <p>Already have an account ? </p>
+                            <Link to='/'><button className="register-b btn btn-success ms-3" >Login</button></Link>
 
                         </div>
                     </div>

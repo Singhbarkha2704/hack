@@ -1,65 +1,79 @@
 .wish-header{
     text-align: center;
-    background-color: rgb(201, 215, 229);
-    border-radius: 6px;
-}
-.wish-topicon{
-    height: 8vh;
-}
-/* .product-list {
-    margin: 20px 5% 20px 7%;
-
-} */
-.card{
-    width: 25%;
-    height: 63vh;
-    border: 1px solid rgb(247, 245, 245);
-    margin: 3% 0 0% 5%;
-    
-}
-.wish-image{
-    width:100% ;
-    height: 41vh;
-    border: 1px solid rgb(250, 247, 247);
-}
-.wishcart-icon{
-    width:45px;
-    border: 1px solid black;
+    margin:2% 25% 2% 25%;
+    background-color: rgba(151, 183, 205, 0.753);
+    border-radius: 25px;
 }
 .wishremove-icon{
-    display: flex;
+   
     margin: 0 10% 0 10%;
     border: 1px solid black;
     border-radius: 50px;
     background-color: rgb(219, 217, 217);
-    margin-top: -270%;
+    margin-top: -263%;
+    margin-left: -40%;
+    
 }
+
 .wishremove-icon:hover{
     transform:scale(1.3) ;
 }
-.wish-para{
-    color: rgba(2, 58, 106, 0.929);
+.wish-title{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 0%;
+    padding: 0%;
 }
-.wish-para1{
-    color: rgb(0, 39, 9);
+ .wish-rating{
+    position: relative;
+    top:-2%;
+    right: 50%;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 15px;
+    margin: 0%;
+    padding: 0%;
 }
- .wish-btn{
-    width:45%;
+.wish-price{
+    font-family: sans-serif;
+    font-weight: lighter;
+    color: rgba(159, 143, 49, 0.884);
+    font-size: 18px;
+    margin:4% 4% 6% 4%;
+    padding: 0%;
+    float: left;
+    font-weight: bold;
+}
+.wish-offer{
+    font-family: sans-serif;
+    font-weight: lighter;
+    color: green;
+    font-size: 15px;
+  margin:4% 0 4% 0%;
+    padding: 0%;
+    float: right;
+}
+.wish-btn{
     border: none;
-    height: 5vh;
-    background-color: rgba(120, 138, 163, 0.925);
-    border-radius: 15px;
-} 
-.clear-btn{
-    background-color: rgb(150, 181, 218);
-    height: 7vh;
-    width:15%;
-    border: none;
-    border-radius: 15px;
-    margin: 3% 4% 3% 4%;
+    background-color:white;
+   margin:8px 0px 8px 0;
+    border-radius: 50px;
 }
-.wishemp-img{    
-    width:20%;
-    height: 20vh;
-    margin:8% 38% 8% 38%;
+
+.wish-btn:hover{
+    background-color: rgb(194, 197, 194);
+}
+.wish-clearbtn{
+    color: whitesmoke;
+    background-color: rgb(28, 50, 83);
+    margin: 4% 15% 4% 15%;
+    border-radius: 50px;
+    width:12%;
+    height: 6vh;
+    border: none;
+}
+.wish-clearbtn:hover{
+    background-color: rgba(115, 146, 190, 0.831);
+    color: black;
 }

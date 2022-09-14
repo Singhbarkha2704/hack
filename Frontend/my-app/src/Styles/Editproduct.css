@@ -1,0 +1,71 @@
+.edit-body{
+  display: flex; 
+ align-items: center;
+  justify-content: center;
+  height: 100vh;
+  /* padding: 10px; */
+  /* background-color: rgb(111, 111, 161); */
+}
+.edit-container{
+  max-width: 700px;
+  width: 100%;
+  background: rgb(212, 221, 237);
+  margin:10% 0 10% 0;
+  padding: 25px 30px;
+  border-radius: 5px;
+  border: 1px solid black;
+  box-shadow: 6px 6px rgb(156, 154, 154);
+}
+
+.form-title{
+  font-size: 25px;
+  margin:1%  40% 1% 40%;
+}
+form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.input-box{
+  margin-bottom: 15px;
+  width:calc(100% / 2 - 20px)
+}
+
+.details{
+  margin: 15px 0 12px 0;
+  display: block;
+  font-weight: 500;
+  margin: 2%;
+}
+.input-box input{
+  height: 8vh;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width:2px ;
+  transition:all 0.3s ease
+}
+.input-box input:focus,input:valid{
+  border-color: rgb(105, 100, 85);
+}
+.edit-button{
+  height: 10px;
+  margin: 5px 0;
+}
+.edit-btn1{
+  height: 7vh;
+  width:70%;
+  margin: 1% 15% 1% 15%;
+  border: none;
+  background-color: rgba(87, 101, 145, 0.815);
+  color: rgb(248, 249, 249);
+  border-radius: 8px;
+
+}
+.edit-btn1:hover{
+  background-color: rgba(149, 170, 202, 0.961);
+  color: black;
+}

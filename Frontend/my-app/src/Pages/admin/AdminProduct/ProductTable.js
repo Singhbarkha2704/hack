@@ -1,5 +1,5 @@
 import { TableContainer,Table,TableHead,TableBody,TableRow,TableCell,Paper, Button} from  "@mui/material"
-import salesdata from "../Sales/Salesdata"
+import salesdata from "../../Sales/Salesdata"
 import DraftsIcon from '@mui/icons-material/Drafts';
 import MarkAsUnreadIcon from '@mui/icons-material/MarkAsUnread';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
@@ -26,8 +26,7 @@ function ProductTable(){
       backgroundColor: 'rgb(211,211,211)'
     }
   }}>
-    
-                <TableHead className="sale-head">
+                    <TableHead className="sale-head">
                     
                     <TableRow>
                         <TableCell align="center" fontWeight="bold"><ListIcon></ListIcon></TableCell>

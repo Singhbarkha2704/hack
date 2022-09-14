@@ -9,9 +9,17 @@ export default function CategoryBanner() {
         <Row>
           <Col lg="4">
             <div className="singlee-banner">
+              <img src={require("../../assets/images/diwali.jpg")} alt="" />
+              <div className="inner-text">
+              <h4><a style={{textDecoration: 'none', color:'#D45634 '}} href="sofachairs">New Arrivals</a> </h4>
+              </div>
+            </div>
+          </Col>
+          <Col lg="4">
+            <div className="singlee-banner">
               <img src={require("./sofa.jpg")} alt="" />
               <div className="inner-text">
-              <h4><a href="sofachairs">Sofa</a> </h4>
+              <h4><a style={{textDecoration: 'none', color:'orange'}} href="sofachairs">Sofa</a> </h4>
               </div>
             </div>
           </Col>
@@ -19,7 +27,7 @@ export default function CategoryBanner() {
             <div className="single-banner">
               <img src={require("./dinning.jpg")} alt="" />
               <div className="inner-text">
-                <h4><a href="dinning">Dinning</a> </h4>
+                <h4><a style={{textDecoration: 'none', color:'brown'}} href="dinning">Dinning</a> </h4>
               </div>
             </div>
           </Col>
@@ -27,10 +35,30 @@ export default function CategoryBanner() {
             <div className="single-banner">
               <img src={require("./garden.jpg")} alt="garden" />
               <div className="inner-text">
-              <h4><a href="Garden">Garden</a> </h4>
+              <h4><a style={{textDecoration: 'none', color:'teal'}} href="Garden">Garden</a> </h4>
               </div>
             </div>
           </Col>
+
+          <Col lg="4">
+            <div className="singlee-banner">
+              <img src={require("../../assets/images/lights.jpg")} alt="" />
+              <div className="inner-text">
+              <h4><a style={{textDecoration: 'none', color:'red'}} href="/lighting">Lights</a> </h4>
+              </div>
+            </div>
+          </Col>
+
+          <Col lg="4">
+            <div className="singlee-banner">
+              <img src={require("../../assets/images/walldecor.jpg")} alt="" />
+              <div className="inner-text">
+              <h4><a style={{textDecoration: 'none', color:'#19355C'}} href="/decor">Decor</a> </h4>
+              </div>
+            </div>
+          </Col>
+
+          
         </Row>
       </Container>
     </div>

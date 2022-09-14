@@ -7,20 +7,18 @@ import { Carousel } from "react-bootstrap";
 import CategoryBanner from "./CategoryBanner";
 import Benefits from "./Benefts";
 import Advertisement from "./Advertisement";
-import UserProduct from "../UserProduct";
-import CategoryNavbar from './../categories-nav/CategoryNavbar';
+import VideoAd from "./VideoAd";
 
 function UserDashBoard(props) {
   return (
     <Fragment>
-      <CategoryNavbar/>
       <div className="custom-carousel">
         <Carousel className="custom-carousel"
           style={{
             marginTop:0,
             padding:0,
           }}>
-        <Carousel.Item className="custom-carousel">
+        <Carousel.Item className="custom-carousel first-car">
           <div
             className="d-block w-100 main_slider"
             style={{
@@ -86,7 +84,7 @@ function UserDashBoard(props) {
     <CategoryBanner/>
     <Benefits/>
     <Advertisement/>
-    <UserProduct/>
+        <VideoAd/>
       </div>
       </Fragment>
   );

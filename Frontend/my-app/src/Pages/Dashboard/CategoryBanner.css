@@ -63,6 +63,7 @@
 
   position: relative;
   z-index: 1;
+  margin: 8px;
 }
 
 .singlee-banner:hover::before {

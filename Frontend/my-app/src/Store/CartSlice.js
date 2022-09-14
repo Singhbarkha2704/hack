@@ -11,7 +11,7 @@ export const cartSlice = createSlice({
     initialState,
     reducers : {
         addToCart (state, action) {
-            const tempIndex = state.cartItems.findIndex( (item) => item.id === action.payload.id);
+            const tempIndex = state.cartItems.findIndex( (item) => item._id === action.payload._id);
             if (tempIndex >=0) {
                 state.cartItems[tempIndex].cartQuantity +=1;
             }
@@ -30,19 +30,19 @@ export const cartSlice = createSlice({
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
         decreaseCart (state, action) {
-            const tempIndex = state.cartItems.findIndex( (item) => item.id === action.payload.id );
+            const tempIndex = state.cartItems.findIndex( (item) => item._id === action.payload._id );
             if ( state.cartItems[tempIndex].cartQuantity >1) {
                 state.cartItems[tempIndex].cartQuantity -=1;
                 localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
             }
             else if(state.cartItems[tempIndex].cartQuantity === 1) {
-                const tempProduct = state.cartItems.filter( (item) => item.id !== action.payload.id );
+                const tempProduct = state.cartItems.filter( (item) => item._id !== action.payload._id );
                 state.cartItems = tempProduct;
                 localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
             }
         },
         increaseCart (state, action) {
-            const tempIndex = state.cartItems.findIndex( (item) => item.id === action.payload.id );
+            const tempIndex = state.cartItems.findIndex( (item) => item._id === action.payload._id );
             state.cartItems[tempIndex].cartQuantity +=1;
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
         },
@@ -73,3 +73,4 @@ export const { addToCart, removeFromCart, increaseCart, decreaseCart, clearCart,
 export default cartSlice.reducer;
 export const getCart = (state) => state.cart.cartItems;
 export const getCompleteCart = (state) => state.cart;
+

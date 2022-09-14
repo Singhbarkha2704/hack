@@ -1,12 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
   wishItems: localStorage.getItem("wishItems")
     ? JSON.parse(localStorage.getItem("wishItems"))
     : [],
-  wishTotalQuantity: 0
-  
+  wishTotalQuantity: 0  
 };
 
 const wishSlice = createSlice({
@@ -15,7 +13,7 @@ const wishSlice = createSlice({
   reducers: {
     addToWish(state, action) {
       const existingIndex = state.wishItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
 
       if (existingIndex >= 0) {
@@ -30,12 +28,12 @@ const wishSlice = createSlice({
       }
       localStorage.setItem("wishItems", JSON.stringify(state.wishItems));
     },
-    
+
     removeFromWish(state, action) {
       state.wishItems.map((wishItem) => {
-        if (wishItem.id === action.payload.id) {
+        if (wishItem._id === action.payload._id) {
           const nextWishItems = state.wishItems.filter(
-            (item) => item.id !== wishItem.id
+            (item) => item._id !== wishItem._id
           );
 
           state.wishItems = nextWishItems;
@@ -52,7 +50,6 @@ const wishSlice = createSlice({
   },
 });
 
-export const { addToWish, removeFromWish, clearWish } =
-  wishSlice.actions;
+export const { addToWish, removeFromWish, clearWish } = wishSlice.actions;
 
 export default wishSlice.reducer;

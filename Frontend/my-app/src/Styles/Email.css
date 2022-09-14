@@ -1,0 +1,123 @@
+.email-name{
+    margin-top: 10px;
+    margin-left: 590px;
+    color:black;
+    font-size: 15px;
+    font-weight: bolder;
+    
+}
+.email-head{
+    margin-top: 0px;
+    padding-top: 20px;
+    font-size: 35px;
+    color: black;
+    text-align: center;
+    margin-right: -150px;
+   
+}
+.email-container{
+  margin-left: -10%;
+   margin-top: 0% !important;
+  padding-bottom: 10px;
+  background-color: white;
+  background-size: cover;
+  
+}
+.bg-container{
+  background-image: url('../assets/images/kitchen.jpg');
+  background-size: 45%;
+  margin-top: 2%;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+}
+
+.lastt{
+    padding: 10px;
+}
+.email-btn {
+  align-items: center;
+  background-image: linear-gradient(135deg, #527ab0 40%, #ebe9e8) !important;
+  border: 0;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-family: "Codec cold",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 54px;
+  justify-content: center;
+  letter-spacing: .4px;
+  line-height: 1;
+  text-align: center;
+  width: 15% !important;
+  margin-left: 710px !important;
+  margin-bottom: 50px;
+  margin-top: 25px !important;
+  align-self: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.email-btn:active {
+  outline: 0;
+}
+
+.email-btn:hover {
+  outline: 0;
+}
+
+.email-btn span {
+  transition: all 200ms;
+}
+
+.email-btn:hover span {
+  transform: scale(.9);
+  opacity: .75;
+}
+
+@media screen and (max-width: 991px) {
+  .email-btn {
+    font-size: 15px;
+    height: 50px;
+  }
+
+  .email-btn span {
+    line-height: 50px;
+  }
+}
+
+.kitchen{
+  width: 45%;
+  height: 60%;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+.email-form input, textarea{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    padding: .5rem .8rem 0rem .8rem;
+    margin: .9vw 0 ;
+    border:0;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-left: 550px;
+    background-image: linear-gradient(to right, rgba(132, 137, 138, 0.84),white);   
+}
+
+.email-form textarea{
+    height: 15vh;
+}
+
+
+

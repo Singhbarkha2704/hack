@@ -14,7 +14,7 @@ import Sidebar from '../admin/components/Sidebar/Sidebar';
       }, (error) => {
           console.log(error.text);
       });
-  };
+    };
 
   return (
     <div>

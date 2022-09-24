@@ -11,6 +11,7 @@ import { addToCart } from "../../Store/CartSlice";
 import '../../Styles/product.css'
 import { Link } from 'react-router-dom';
 import CategoryNavbar from '../Navbar/CategoryNavbar';
+import { Helmet } from 'react-helmet';
 
 const Sofachairs = () => {
     const { items } = useSelector((state) => state.product);
@@ -102,6 +103,7 @@ const Sofachairs = () => {
 
     return (
         <div>
+            <Helmet><title>Home Decor App-Sofa Sets</title></Helmet>
             <CategoryNavbar/>
             <h2 className='category'>Sofa Sets</h2>
             <div style={{marginLeft:"78%",marginTop:"2%"}}>

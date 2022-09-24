@@ -79,12 +79,12 @@ function UserNavbar() {
 
             <NavbarBrand>
         {/* <SearchBar placeholder="Search for products, brand and more" data={ProductData}/> */}
-        <div className='search-bar'>
+        {/* <div className='search-bar'>
             <form  className='search-form' onSubmit={submitHandler}>
               <button className='searching-button' type='submit'><i className="fa fa-search mt-3"></i></button>
               <input type="text" className='search-inp' value={term} placeholder="Search..." onChange={(e)=>setTerm(e.target.value)}/>
             </form>
-        </div>
+        </div> */}
             </NavbarBrand>
             
           <NavDropdown

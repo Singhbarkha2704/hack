@@ -11,7 +11,6 @@ import Dinning from "./Pages/Category/Dinning";
 import Decor from "./Pages/Category/Decor";
 import Cart from "./Pages/Cart/Cart"
 import UserProfile from "./Pages/UserProfile";
-import SpectatorNavbar from './Pages/Navbar/SpectatorNavbar';
 import UserNavbar from './Pages/Navbar/UserNavbar';
 import CardProfile from './Pages/Navbar/Profile';
 import Footer from '../src/Pages/Navbar/Footer';
@@ -26,7 +25,6 @@ import NewArrivals from './Pages/Category/NewArrivals';
 import Dashboard from './Pages/admin/Dashboard';
 import Analytics from './Pages/admin/Analytics';
 import Settings from './Pages/admin/Settings';
-import Contact from './Pages/Contact/Contact';
 import Email from './Pages/Stocks/Email';
 import EditProduct from "./Pages/admin/CRUD-Product/edit";
 import CreateProduct from "./Pages/admin/CRUD-Product/create";
@@ -51,7 +49,6 @@ function App() {
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
           <Route path='/' element={<UserDashBoard />} /> 
-          <Route path="/contact" element={<Contact/>}/>
           <Route path="/product" element={<Product></Product>}></Route>
           <Route path="/Sofachairs" element={<Sofachairs></Sofachairs>}></Route>
           <Route path="/Lighting" element={<Lighting></Lighting>}></Route>

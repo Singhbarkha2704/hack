@@ -14,30 +14,29 @@ import "../../Styles/Sales.css"
 import { Fragment } from "react";
 
 
-
 function ProductTable(){
     //  const classes = useStyles();
     return(
         <Fragment>
             <Button>Add Product</Button>
-        <TableContainer component={Paper} className="sale-Paper">
-            <Table  aria-label='simple table' sx={{
-    "& .MuiTableRow-root:hover": {
-      backgroundColor: 'rgb(211,211,211)'
-    }
-  }}>
+            <TableContainer component={Paper} className="sale-Paper">
+                <Table  aria-label='simple table' sx={{
+                    "& .MuiTableRow-root:hover": {
+                    backgroundColor: 'rgb(211,211,211)'
+                }
+                }}>
                     <TableHead className="sale-head">
                     
-                    <TableRow>
-                        <TableCell align="center" fontWeight="bold"><ListIcon></ListIcon></TableCell>
-                        <TableCell align="center" fontWeight="bold"><TitleIcon></TitleIcon>Product Title</TableCell>
-                        <TableCell align="center" fontWeight="bold"><LocalOfferIcon></LocalOfferIcon>Price</TableCell>
-                        <TableCell align="center" fontWeight="bold"><CalendarMonthIcon></CalendarMonthIcon>Quantity</TableCell>
-                        <TableCell align="center" fontWeight="bold"><ProductionQuantityLimitsIcon></ProductionQuantityLimitsIcon>Email</TableCell>
-                        <TableCell align="center" fontWeight="bold"><RemoveRedEyeIcon></RemoveRedEyeIcon>Actions</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
+                        <TableRow>
+                            <TableCell align="center" fontWeight="bold"><ListIcon></ListIcon></TableCell>
+                            <TableCell align="center" fontWeight="bold"><TitleIcon></TitleIcon>Product Title</TableCell>
+                            <TableCell align="center" fontWeight="bold"><LocalOfferIcon></LocalOfferIcon>Price</TableCell>
+                            <TableCell align="center" fontWeight="bold"><CalendarMonthIcon></CalendarMonthIcon>Quantity</TableCell>
+                            <TableCell align="center" fontWeight="bold"><ProductionQuantityLimitsIcon></ProductionQuantityLimitsIcon>Email</TableCell>
+                            <TableCell align="center" fontWeight="bold"><RemoveRedEyeIcon></RemoveRedEyeIcon>Actions</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                     {
                         salesdata.map(row=>(
                             <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th':{border: 0 }}}>

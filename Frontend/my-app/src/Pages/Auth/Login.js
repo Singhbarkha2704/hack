@@ -60,8 +60,7 @@ const Login=()=>{
         console.log(username);
         console.log(password);
         axios.post(`http://localhost:3005/api/auth/login`,{username,password}).then
-        (res=>{        
-           
+        (res=>{                   
             dispatch(loginSuccess(res.data));
             if (res.data.isAdmin) {
                 localStorage.setItem('isAdmin', true);                

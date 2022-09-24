@@ -1,17 +1,18 @@
 import React, { Fragment } from "react";
 import "./UserDashBoard.css"
-import dash1 from "./dash1.jpg"
-import dash2 from "./dash2.gif"
-import dash3 from "./dash3.gif"
+import dash1 from "../../assets/images/gradient-mobile-isometric-technology-background_52683-4499.jpg"
+import dash2 from "../../assets/images/super-sale-phone-banner-mobile-clearance-sale-discount-poster-smartphone-sale-marketing-special-offer-promotion_433751-53.jpg"
+import dash3 from "../../assets/images/2805145.jpg"
 import { Carousel } from "react-bootstrap";
 import CategoryBanner from "./CategoryBanner";
 import Benefits from "./Benefts";
-import Advertisement from "./Advertisement";
 import VideoAd from "./VideoAd";
+import { Helmet } from 'react-helmet';
 
 function UserDashBoard() {
   return (
     <Fragment>
+      <Helmet><title>Mobile Store App</title></Helmet>
       <div className="custom-carousel">
         <Carousel className="custom-carousel"
           style={{
@@ -22,8 +23,8 @@ function UserDashBoard() {
           <div
             className="d-block w-100 main_slider"
             style={{
-              backgroundImage: `url(${dash3})`,
-              marginTop:0
+              backgroundImage: `url(${dash1})`,
+              // marginTop:0
             }}
           >
           <div className="container fill_height">
@@ -44,7 +45,7 @@ function UserDashBoard() {
         <div
           className="d-block w-100 main_slider"
           style={{
-            backgroundImage: `url(${dash1})`,
+            backgroundImage: `url(${dash3})`,
           }}
         >
           <div className="container fill_height">
@@ -83,7 +84,6 @@ function UserDashBoard() {
     </Carousel>
     <CategoryBanner/>
     <Benefits/>
-    <Advertisement/>
         <VideoAd/>
       </div>
       </Fragment>
@@ -91,4 +91,3 @@ function UserDashBoard() {
 }
 
 export default UserDashBoard;
-  

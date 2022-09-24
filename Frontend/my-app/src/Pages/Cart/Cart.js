@@ -153,10 +153,10 @@ publicRequest.post('sales/record',{email,cart}).then((res)=>console.log(res)).ca
                                 <span className="carting-amount">₹{subtotalamount}</span>
                             </div>
                             <p>Taxes and shipping calculated at checkout</p>
-                                <button onClick={() => handcheckout()}>Check out</button>
+                                <button style={{backgroundColor:'indianred'}}  onClick={() => handcheckout()}>Checkout</button>
                                 
-                            <div>
-                                <button onClick={()=>handleCoupon()}>Apply discount</button>
+                            <div className="mt-3">
+                                <button style={{backgroundColor:'teal'}}  onClick={()=>handleCoupon()}>Apply Discount</button>
                             </div>    
                             
                             <div className="carting-continue-shopping">

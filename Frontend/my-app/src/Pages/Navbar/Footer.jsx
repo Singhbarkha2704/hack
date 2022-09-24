@@ -13,7 +13,7 @@ const Footer=()=>{
   return(
     <div className="Container">
      <div className="left">
-      <h1>DecorHome</h1>
+      <h1>Mobile Store</h1>
       <p className='desc'>
         There are many variations of passages of Lorem Ipsum available, but
         the majority have suffered alteration in some form, by injected
